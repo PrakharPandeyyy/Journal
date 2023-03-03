@@ -15,11 +15,44 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+let posts=[];
+
 app.get("/",function(req,res){
   res.render('home',{
-    startcontent:homeStartingContent
+    startcontent:homeStartingContent,
+    posts :posts
   });
 });
+
+app.get("/contact",function(req,res){
+  res.render('contact',{
+    contact:contactContent
+  });
+});
+
+app.get("/about",function(req,res){
+  res.render('about',{
+    about:aboutContent
+  });
+});
+
+app.get("/compose",function(req,res){
+  res.render('compose');
+});
+
+app.post("/compose",function(req,res){
+  let post ={
+    ptitle:req.body.postTitle,
+    pbody:req.body.postBody
+  };
+  posts.push(post);
+  
+  res.redirect("/");
+
+});
+
+
+
 
 
 
