@@ -29,10 +29,12 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
 This application uses the following dependencies:
 
+```bash
 ->Node.js
 ->Express.js
 ->EJS
 ->Body-parser
+```
 
 ## Structure
 The project has the following structure:
